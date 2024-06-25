@@ -131,3 +131,8 @@
 .search-bar button img {
   width: 20px;
 }
+
+.searchpageheader {
+  display: flex;
+  justify-content: center;
+}
