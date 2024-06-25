@@ -27,6 +27,7 @@ def start_search(summary):
     }
 
     print(result)
+    return result
 
 if __name__ == '__main__':
    start_search(summary)
