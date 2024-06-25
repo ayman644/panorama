@@ -1,3 +1,5 @@
+# input website url and returns website text
+
 import requests 
 from bs4 import BeautifulSoup
 
