@@ -3,15 +3,31 @@ import contradiction
 import search
 import summaries
 
+from revChatGPT.V3 import Chatbot
+chat =Chatbot("sk-proj-0ZOlZD009QUlSG6oKG5XT3BlbkFJFxTfKXrtGP1d36gJ9iQ0")
 
 def runmain(url):
     text = scrape.getSiteText(url)
-    summary = summaries.summariseGPT(text)
-    Prompts_Contradiction = contradiction.generate_contradiction(summary)
-    Prompts_Similar = contradiction.generate_similarsearch(summary)
+    summary = summaries.summariseGPT(chat, text)
+    prompts_contradiction = contradiction.generate_contradiction(chat, summary)
+    prompts_similar = contradiction.generate_similarsearch(chat, summary)
 
-    search.start_search(Prompts_Contradiction)
-    search.start_search(Prompts_Similar)
+    # search_result =search.start_search(Prompts_Contradiction)
+    # search.start_search(Prompts_Similar)
+    
+    against =[]
+    support =[]
+    
+    for url in search.start_search(prompts_contradiction):
+        against.append([url, summaries.summariseGPT(scrape.getSiteText(url))])
+        
+    for url in search.start_search(prompts_similar):
+        support.append([url, summaries.summariseGPT(scrape.getSiteText(url))])
+        
+        
+    print(against)
+    print(support)
+        
 
     
 
