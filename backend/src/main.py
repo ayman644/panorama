@@ -13,6 +13,8 @@ def runmain(url):
     search.start_search(Prompts_Contradiction)
     search.start_search(Prompts_Similar)
 
+    
+
 
 
 test_url = "https://www.theguardian.com/media/article/2024/jun/25/julian-assange-plea-deal-with-us-free-to-return-australia"
