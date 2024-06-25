@@ -19,10 +19,12 @@ def runmain(url):
     support =[]
     
     for url in search.start_search(prompts_contradiction):
-        against.append([url, summaries.summariseGPT(scrape.getSiteText(url))])
+        a =scrape.getSiteText(url)
+        against.append([url, summaries.summariseGPT(chat,a)])
         
     for url in search.start_search(prompts_similar):
-        support.append([url, summaries.summariseGPT(scrape.getSiteText(url))])
+        a =scrape.getSiteText(url)
+        support.append([url, summaries.summariseGPT(chat,a)])
         
         
     print(against)
