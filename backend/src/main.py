@@ -9,58 +9,57 @@ start =time.time()
 from revChatGPT.V3 import Chatbot
 chat =Chatbot("sk-proj-0ZOlZD009QUlSG6oKG5XT3BlbkFJFxTfKXrtGP1d36gJ9iQ0")
 
-def process_urls(urls, category, collection):
+def process_urls(urls, collection):
     for url in urls:
         # print(category)
-        a = scrape.getSiteText(url)
-        if a == '':
-            collection.append({'url': url, 'summary': 'error getting website content'})
+        icon, site_text =scrape.get_website_info(url)
+        summary =summaries.summarise_gpt(chat, site_text)
+        
+        if site_text:
+            collection.append({'url': url, 'summary': summary, 'website_icon':icon})
+        else:
+            collection.append({'url': url, 'summary': 'error getting website content', 'website_icon':icon})
             continue
-        print(f'\n\n{url}\n{a[:500]}\n\n')
-        collection.append({'url': url, 'summary': summaries.summarise_gpt(chat, a), 'website_icon':scrape.get_web_icon()})
-
+    
 def runmain(url):
     # print('1')
-    text = scrape.getSiteText(url)
-    if text =='':
+    icon, site_text =scrape.get_website_info(url)
+    
+    if site_text =='':
         print('error accessing website')
-        return 'an error with getting website content'
-        # NEEDS A RETURN
+        return 'an error with getting website content' # HANDLE ERROR PROPERLY
     # print('2')
-    summary = summaries.summarise_gpt(chat, text)
+    summary = summaries.summarise_gpt(chat, site_text)
     # print('3')
     prompts_contradiction = contradiction.generate_contradiction(chat, summary)
     print(prompts_contradiction)
     # print('4')
-    prompts_similar = contradiction.generate_similarsearch(chat, summary)
+    prompts_similar = contradiction.generate_similar(chat, summary)
     print(prompts_similar)
     # print('5')
 
     # search_result =search.start_search(Prompts_Contradiction)
     # search.start_search(Prompts_Similar)
     
-    against =[]
-    support =[]
+    con =[]
+    sim =[]
 
-    process_urls(search.start_search(prompts_contradiction), 'con', against)
+    process_urls(search.start_search(prompts_contradiction), con)
 
-    process_urls(search.start_search(prompts_similar), 'sim', support)
-
-        # print(support)
+    process_urls(search.start_search(prompts_similar), sim)
+    
+    # print(support)
         
         
-    data =[support, against] 
+    data =[sim, con] 
+    data =[{'website_name':None, 'page_name':None, 'website_icon':icon}, data]
     print(data)   
     # print(against)
     # print(support)
         
 
-    
-
-
-
 test_url = "https://www.theguardian.com/media/article/2024/jun/25/julian-assange-plea-deal-with-us-free-to-return-australia"
 
 runmain(test_url)
 
-print(f'\n\ntook {time.time()-start} seconds to complete')
+print(f'script took {round(time.time()-start,2)} seconds to complete')
