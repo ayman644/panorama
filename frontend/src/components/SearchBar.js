@@ -32,7 +32,7 @@ export function SearchBar() {
         <button className="search-button" onClick={handleSearch}>
           <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Magnifying_glass_icon.svg" alt="Search" />
         </button>
-        <input type="text" placeholder="Search anything or type a URL" value={searchTerm}
+        <input type="text" placeholder="Paste a URL" value={searchTerm}
         onChange={handleInputChange} onKeyDown={handleKeyPress}
         />
       </div>
