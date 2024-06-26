@@ -4,14 +4,19 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
+import eventlet
+eventlet.monkey_patch()
+
 url = "https://www.abc.net.au/news/2024-06-26/greg-lynn-murder-verdict-russell-hill-carol-clay-campers/103960524"
+# url ="https://www.intelligence.senate.gov/sites/default/files/documents/report_volume5.pdf"
 
 def get_website_info(url):
     print(f'getting info for: {url}')
     
-    try:    
-        response = requests.get(url, timeout=4)
-    except requests.exceptions.Timeout:
+    try:   
+        with eventlet.Timeout(4): 
+            response = requests.get(url, verify=False)
+    except eventlet.timeout.Timeout:
         return ''
         
     soup = BeautifulSoup(response.content, 'html.parser')
@@ -57,4 +62,4 @@ def get_website_text(soup, url):
     print(f'site text trimmed: {site_content[:500]}')
     return site_content
 
-# print(get_web_icon(url))
+print(get_website_info(url))
