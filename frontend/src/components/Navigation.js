@@ -2,7 +2,7 @@ export function Navigation() {
     return (
       <nav className="navigation">
         <div className="logo">
-            <p><a href="/">Searchify</a></p>
+            <p><a href="/">Panorama</a></p>
         </div>
         <div className="nav-group">
             <ul>

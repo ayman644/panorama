@@ -19,7 +19,7 @@ function PricingPage() {
             <div className="container mt-20" style={{ marginTop: '90px' }}>
             <main>
                 <div className="text-center my-15">
-                <h1>Search Pro with Searchify</h1>
+                <h1>Search Pro with Panorama</h1>
                 <p>Upgrade to more searches, something and upload files.</p>
                 <div className="container">
                 <div className="btn-group my-4">
@@ -47,7 +47,7 @@ function PricingPage() {
                             <h3>$0 <small className="text-muted">per month</small></h3>
                             <ul className="list-unstyled mt-3 mb-4">
                                 <li>5 queries per month</li>
-                                <li>Support from Searchify community</li>
+                                <li>Support from Panorama community</li>
                                 <li>Reports</li>
                                 <li>Dashboards</li>
                             </ul>
@@ -62,7 +62,7 @@ function PricingPage() {
                             <h3>$3.99 <small className="text-muted">per month</small></h3>
                             <ul className="list-unstyled mt-3 mb-4">
                                 <li>100 queries per month</li>
-                                <li>Support from Searchify community</li>
+                                <li>Support from Panorama community</li>
                                 <li>Reports</li>
                                 <li>Dashboards</li>
                             </ul>
@@ -80,7 +80,7 @@ function PricingPage() {
                             <h3>$30 <small className="text-muted">per year</small></h3>
                             <ul className="list-unstyled mt-3 mb-4">
                             <li>1000 queries per month</li>
-                            <li>Support from Searchify community</li>
+                            <li>Support from Panorama community</li>
                             <li>Reports</li>
                             <li>Dashboards</li>
                             </ul>
@@ -149,7 +149,7 @@ For annual subscriptions, you can pay by credit card, bank transfer, or check.
             <footer className="pt-4 my-md-5 pt-md-5 border-top">
                 <div className="row">
                 <div className="col-12 col-md">
-                    <small className="d-block mb-3 text-muted">©Searchify 2024</small>
+                    <small className="d-block mb-3 text-muted">©Panorama 2024</small>
                     <ul className="list-unstyled">
                     <li><a href="#">Privacy</a>
                     <a href="#">Terms</a>
