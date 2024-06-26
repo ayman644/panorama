@@ -2,7 +2,7 @@ import '../App.css';
 import React  from 'react';
 
 
-function WebInfoCard() {
+function WebInfoCard({websiteIcon, websiteName, pageName}) {
 
     return (
         <div className="d-flex align-items-center">
@@ -15,8 +15,8 @@ function WebInfoCard() {
           </div>
           {/* Text Section */}
           <div className="ml-3">
-            <div style={{ fontSize: '1.5rem' }}>Website Name</div>
-            <div style={{ fontSize: '1.7rem', fontWeight: 'bold' }}>Page Name</div>
+            <div style={{ fontSize: '1.5rem' }}>{websiteName}</div>
+            <div style={{ fontSize: '1.7rem', fontWeight: 'bold' }}>{pageName}</div>
           </div>
         </div>
     );

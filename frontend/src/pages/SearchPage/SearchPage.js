@@ -8,23 +8,69 @@ import ViewMoreButton from '../../components/ViewMoreButton';
 
 const SearchPage = () => {
 
-  const [similarPages, setSimilarPages] = useState([<WebSummaryCard key={0} />, <WebSummaryCard key={1} />]);
-  const [contradictingPages, setContradictingPages] = useState([<WebSummaryCard key={0} />, <WebSummaryCard key={1} />]);
+  const [similarPages, setSimilarPages] = useState([
+    <WebSummaryCard websiteIcon={"blah"}
+                    websiteName={"website name"}
+                    pageName={"page name"}
+                    pageSummary={"this is a summary"}
+                    key={0} />,
+    <WebSummaryCard websiteIcon={"blah 2"}
+                    websiteName={"website name 2"}
+                    pageName={"page name 2"}
+                    pageSummary={"this is a summary 2"}
+                    key={1} />,
+  ]);
+  const [contradictingPages, setContradictingPages] = useState([
+    <WebSummaryCard websiteIcon={"blah"}
+                    websiteName={"website name"}
+                    pageName={"page name"}
+                    pageSummary={"this is a summary"}
+                    key={0} />,
+    <WebSummaryCard websiteIcon={"blah 2"}
+                    websiteName={"website name 2"}
+                    pageName={"page name 2"}
+                    pageSummary={"this is a summary 2"}
+                    key={1} />,
+  ]);
 
   const handleViewMoreSimilar = () => {
     const newItems = [
-      <WebSummaryCard key={similarPages.length} />,
-      <WebSummaryCard key={similarPages.length + 1} />,
-      <WebSummaryCard key={similarPages.length + 2} />
+      <WebSummaryCard websiteIcon={"blah"}
+                      websiteName={"website name"}
+                      pageName={"page name"}
+                      pageSummary={"this is a summary"}
+                      key={similarPages.length} />,
+      <WebSummaryCard websiteIcon={"blah 2"}
+                      websiteName={"website name 2"}
+                      pageName={"page name 2"}
+                      pageSummary={"this is a summary 2"}
+                      key={similarPages.length + 1} />,
+      <WebSummaryCard websiteIcon={"blah 3"}
+                      websiteName={"website name 3"}
+                      pageName={"page name 3"}
+                      pageSummary={"this is a summary 3"}
+                      key={similarPages.length + 2} />
     ];
     setSimilarPages([...similarPages, ...newItems]);
   };
 
   const handleViewMoreContradicting = () => {
     const newItems = [
-      <WebSummaryCard key={contradictingPages.length} />,
-      <WebSummaryCard key={contradictingPages.length + 1} />,
-      <WebSummaryCard key={contradictingPages.length + 2} />
+      <WebSummaryCard websiteIcon={"blah"}
+                      websiteName={"website name"}
+                      pageName={"page name"}
+                      pageSummary={"this is a summary"}
+                      key={similarPages.length} />,
+      <WebSummaryCard websiteIcon={"blah 2"}
+                      websiteName={"website name 2"}
+                      pageName={"page name 2"}
+                      pageSummary={"this is a summary 2"}
+                      key={similarPages.length + 1} />,
+      <WebSummaryCard websiteIcon={"blah 3"}
+                      websiteName={"website name 3"}
+                      pageName={"page name 3"}
+                      pageSummary={"this is a summary 3"}
+                      key={similarPages.length + 2} />
     ];
     setContradictingPages([...contradictingPages, ...newItems]);
   };
