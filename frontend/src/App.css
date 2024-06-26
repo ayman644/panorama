@@ -1,3 +1,6 @@
+ul, p {
+    margin-bottom: 0 !important;
+}
 .App {
   text-align: center;
   background: radial-gradient(circle, rgba(63,94,251,1) 20%, rgb(231, 225, 226) 100%);
@@ -43,6 +46,12 @@
 .logo {
   display: flex;
   color: black;
+
+}
+
+.logo a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .nav-group {
@@ -85,16 +94,16 @@
 }
 
 
-.get-started {
+.homepage_btn {
   background-color: black;
   color: white;
   border: none;
   padding: 1rem 1rem;
   cursor: pointer;
   font-weight: 300;
-  display: inline-flex; /* 使用 inline-flex 对齐内容 */
-  align-items: center; /* 垂直居中对齐 */
-  justify-content: center; /* 水平居中对齐 */
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
   border-radius: 0.75rem;
   height: 2rem; 
   line-height: 2rem; 
@@ -105,13 +114,18 @@
   font-size: 4rem;
   color: black;
 }
+
+.header {
+  margin-bottom: 1rem;
+}
+
 .search-bar {
   display: flex;
   align-items: center;
   background: white;
   padding: 0.5rem;
   border-radius: 25px;
-  width: 500px;
+  width: 60%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -132,8 +146,205 @@
   width: 20px;
 }
 
-.searchpageheader {
-  display: flex;
-  justify-content: center;
+.container h1 {
+  display: inline;
 }
 
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+ul {
+  padding-left: 0 !important;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.aboutus-bg {
+  background-image: url('./assets/1.png');
+  background-size: cover; /* Make sure the image covers the div */
+  background-position: center; /* Center the image */
+  width: 100%;
+  height: 800px;
+}
+
+.big-text {
+  font-size: 2em; 
+  font-weight: 300;
+}
+
+.highlight {
+  display: block;
+  padding: 4rem 0;
+  margin-left: 0.5rem;
+  background-image: url('./assets/2.png');
+  background-size: 50%; 
+  background-repeat: no-repeat;
+  font-size: 1.5em;
+}
+
+.contact_icons {
+  margin-top: 1rem;
+}
+
+.list-unstyled li a {
+  text-decoration: none;  
+  color: inherit;
+  margin-right: 1rem;
+}
+
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  margin-top: 2rem;
+}
+
+.search-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.typical-logo {
+  color: #007bff;
+  margin-right: 20px;
+  position: absolute;
+  left: 6rem;
+}
+
+.search-input-group {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  background-color: #e1e1e1;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.search-input {
+  flex-grow: 1;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 25px 0 0 25px;
+  background-color: #e1e1e1;
+}
+
+.clear-button, .search-button {
+  border: none;
+  background-color: #e1e1e1;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.clear-button i, .search-button i {
+  font-size: 20px;
+}
+
+.RecordsContainer {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.RecordsContainer h3 {
+  margin-bottom: 1rem;
+}
+
+.RecordsContainer ul li {
+  margin-top: 2rem;
+}
+
+hr {
+  background-color: black;
+  opacity: 1;
+}
+
+.SummaryCardContainer {
+  height: 15rem;
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.SummaryCard p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  -webkit-line-clamp: 4; 
+  text-overflow: ellipsis;
+  margin-top: 1rem;
+}
+
+.ViewMoreBtn {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.ViewMoreBtn button {
+  background-color: #D9D9D9;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border-width: 0;
+}
