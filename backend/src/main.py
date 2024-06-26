@@ -15,27 +15,25 @@ def process_urls(urls, collection):
         icon, site_text =scrape.get_website_info(url)
         summary =summaries.summarise_gpt(chat, site_text)
         
-        if site_text:
-            collection.append({'url': url, 'summary': summary, 'website_icon':icon})
-        else:
-            collection.append({'url': url, 'summary': 'error getting website content', 'website_icon':icon})
-            continue
+        if not site_text:
+            summary ='error with website'
+        collection.append({'article_name': None, 'website_name':None, 'summary': summary, 'url': url, 'website_icon':icon})
     
-def runmain(url):
+def runmain(orig_url):
     # print('1')
-    icon, site_text =scrape.get_website_info(url)
+    orig_icon, orig_site_text =scrape.get_website_info(orig_url)
     
-    if site_text =='':
+    if orig_site_text =='':
         print('error accessing website')
         return 'an error with getting website content' # HANDLE ERROR PROPERLY
     # print('2')
-    summary = summaries.summarise_gpt(chat, site_text)
+    orig_summary = summaries.summarise_gpt(chat, orig_site_text)
     # print('3')
-    prompts_contradiction = contradiction.generate_contradiction(chat, summary)
-    print(prompts_contradiction)
+    prompt_contradiction = contradiction.generate_contradiction(chat, orig_summary)
+    print(prompt_contradiction)
     # print('4')
-    prompts_similar = contradiction.generate_similar(chat, summary)
-    print(prompts_similar)
+    prompt_similar = contradiction.generate_similar(chat, orig_summary)
+    print(prompt_similar)
     # print('5')
 
     # search_result =search.start_search(Prompts_Contradiction)
@@ -44,15 +42,19 @@ def runmain(url):
     con =[]
     sim =[]
 
-    process_urls(search.start_search(prompts_contradiction), con)
+    process_urls(search.start_search(prompt_contradiction), con)
 
-    process_urls(search.start_search(prompts_similar), sim)
+    process_urls(search.start_search(prompt_similar), sim)
     
     # print(support)
         
-        
     data =[sim, con] 
-    data =[{'website_name':None, 'page_name':None, 'website_icon':icon}, data]
+    
+    orig_website_info ={"article_name":None, "website_name":None, "summary": orig_summary, 'url': orig_url, 'website_icon':orig_icon}
+
+    data ={'original_article':orig_website_info,
+           "similar":sim,
+           'contradiction': con}
     print(data)   
     # print(against)
     # print(support)
