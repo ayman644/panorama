@@ -5,9 +5,13 @@ import WebInfoCard from '../../components/WebInfoCard';
 import WebSummaryCard from '../../components/WebSummaryCard';
 import ViewMoreButton from '../../components/ViewMoreButton';
 import {FetchSearch} from "./FetchSearch";
+import {useLocation} from "react-router-dom";
 
-const SearchPage = (url) => {
-  const fetchSearch = new FetchSearch("blah");
+const SearchPage = () => {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const query = params.get('query');
+  const fetchSearch = new FetchSearch(query);
 
   const [similarPages, setSimilarPages] = useState(fetchSearch.getSimilarDocs());
   const [contradictingPages, setContradictingPages] = useState(fetchSearch.getDiffDocs());
@@ -56,7 +60,7 @@ const SearchPage = (url) => {
 
   return (
     <div className='SearchPage'>
-      <TypicalSearchBar />
+      <TypicalSearchBar url={query} />
       <div className='RecordsContainer my-4'>
         {fetchSearch.getCurrentDoc()}
       </div>
