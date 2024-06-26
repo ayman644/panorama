@@ -17,7 +17,7 @@ def process_urls(urls, category, collection):
             collection.append({'url': url, 'summary': 'error getting website content'})
             continue
         print(f'\n\n{url}\n{a[:500]}\n\n')
-        collection.append({'url': url, 'summary': summaries.summariseGPT(chat, a)})
+        collection.append({'url': url, 'summary': summaries.summarise_gpt(chat, a), 'website_icon':scrape.get_web_icon()})
 
 def runmain(url):
     # print('1')
@@ -27,7 +27,7 @@ def runmain(url):
         return 'an error with getting website content'
         # NEEDS A RETURN
     # print('2')
-    summary = summaries.summariseGPT(chat, text)
+    summary = summaries.summarise_gpt(chat, text)
     # print('3')
     prompts_contradiction = contradiction.generate_contradiction(chat, summary)
     print(prompts_contradiction)
