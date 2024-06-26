@@ -62,4 +62,4 @@ def get_website_text(soup, url):
     print(f'site text trimmed: {site_content[:500]}')
     return site_content
 
-print(get_website_info(url))
+# print(get_website_info(url))
