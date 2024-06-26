@@ -10,11 +10,11 @@ from revChatGPT.V3 import Chatbot
 chat =Chatbot("sk-proj-0ZOlZD009QUlSG6oKG5XT3BlbkFJFxTfKXrtGP1d36gJ9iQ0")
 
 def process_urls(urls, collection):
-    print(scrape.scrape_in_parallel(urls))
+    # print(scrape.scrape_in_parallel(urls))
     for url in urls:
         # print(category)
         icon, site_text =scrape.get_website_info(url)
-        website_info =summaries.summarise_gpt(chat, site_text)
+        website_info =summaries.summarise_gpt(chat, site_text, url)
         article_name =website_info['article_name']
         website_name =website_info['website_name']
         summary =['summary']
@@ -31,7 +31,7 @@ def runmain(orig_url):
         print('error accessing website')
         return 'an error with getting website content' # HANDLE ERROR PROPERLY
     # print('2')
-    orig_website_info = summaries.summarise_gpt(chat, orig_site_text)
+    orig_website_info = summaries.summarise_gpt(chat, orig_site_text, orig_url)
     orig_article_name =orig_website_info['article_name']
     orig_website_name =orig_website_info['website_name']
     orig_summary =['summary']
