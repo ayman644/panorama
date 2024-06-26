@@ -4,34 +4,13 @@ import TypicalSearchBar from '../../components/TypicalSearchBar';
 import WebInfoCard from '../../components/WebInfoCard';
 import WebSummaryCard from '../../components/WebSummaryCard';
 import ViewMoreButton from '../../components/ViewMoreButton';
+import {FetchSearch} from "./FetchSearch";
 
+const SearchPage = (url) => {
+  const fetchSearch = new FetchSearch("blah");
 
-const SearchPage = () => {
-
-  const [similarPages, setSimilarPages] = useState([
-    <WebSummaryCard websiteIcon={"blah"}
-                    websiteName={"website name"}
-                    pageName={"page name"}
-                    pageSummary={"this is a summary"}
-                    key={0} />,
-    <WebSummaryCard websiteIcon={"blah 2"}
-                    websiteName={"website name 2"}
-                    pageName={"page name 2"}
-                    pageSummary={"this is a summary 2"}
-                    key={1} />,
-  ]);
-  const [contradictingPages, setContradictingPages] = useState([
-    <WebSummaryCard websiteIcon={"blah"}
-                    websiteName={"website name"}
-                    pageName={"page name"}
-                    pageSummary={"this is a summary"}
-                    key={0} />,
-    <WebSummaryCard websiteIcon={"blah 2"}
-                    websiteName={"website name 2"}
-                    pageName={"page name 2"}
-                    pageSummary={"this is a summary 2"}
-                    key={1} />,
-  ]);
+  const [similarPages, setSimilarPages] = useState(fetchSearch.getSimilarDocs());
+  const [contradictingPages, setContradictingPages] = useState(fetchSearch.getDiffDocs());
 
   const handleViewMoreSimilar = () => {
     const newItems = [
@@ -79,7 +58,7 @@ const SearchPage = () => {
     <div className='SearchPage'>
       <TypicalSearchBar />
       <div className='RecordsContainer my-4'>
-        <WebInfoCard />
+        {fetchSearch.getCurrentDoc()}
       </div>
       <hr />
       <div className='RecordsContainer my-4'>

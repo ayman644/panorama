@@ -3,7 +3,7 @@ import React from 'react';
 import WebInfoCard from './WebInfoCard';
 
 
-function WebSummaryCard({websiteIcon, websiteName, pageName, pageSummary}) {
+function WebSummaryCard({websiteIcon, websiteName, pageName, pageSummary, pageUrl}) {
     return (
         <div className='SummaryCardContainer'>
         <div className='SummaryCard'>
@@ -11,6 +11,7 @@ function WebSummaryCard({websiteIcon, websiteName, pageName, pageSummary}) {
                 websiteIcon={websiteIcon}
                 websiteName={websiteName}
                 pageName={pageName}
+                pageUrl={pageUrl}
             />
             <p>{pageSummary}</p>
         </div>
