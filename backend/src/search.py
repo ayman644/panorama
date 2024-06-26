@@ -24,5 +24,5 @@ def start_search(summary):
     # print(result)
     return related_urls
 
-if __name__ == '__main__':
-   start_search(summary)
+# if __name__ == '__main__':
+#    start_search(summary)
