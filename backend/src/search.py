@@ -21,13 +21,8 @@ def start_search(summary):
     related_urls = google_search(summary, google_api_key, cse_id)
     related_urls = [item['link'] for item in related_urls[:3]]
 
-    result = {
-        'summary': summary,
-        'related_urls': related_urls,
-    }
+    # print(result)
+    return related_urls
 
-    print(result)
-    return result
-
-if __name__ == '__main__':
-   start_search(summary)
+# if __name__ == '__main__':
+#    start_search(summary)
