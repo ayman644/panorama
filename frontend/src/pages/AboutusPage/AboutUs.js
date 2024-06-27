@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const AboutUs = () => {
 
     useEffect(() => {
-        document.body.style.backgroundColor = '#FF0000';
+        document.body.style.backgroundColor = '#FFFFF';
         return () => {
           document.body.style.backgroundColor = '';
         };
