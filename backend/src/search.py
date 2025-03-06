@@ -1,7 +1,7 @@
 from googleapiclient.discovery import build
 
 # Google API credentials
-google_api_key = 'AIzaSyAj_KPDDhfTydUOiZcoZIYlU2X9MuzeuK0'
+google_api_key = ''
 cse_id = '5565b488c07a94b4b'
 
 summary = "Julian Assange is expected to plead guilty to violating US espionage law in a hearing in Saipan and is set to return to Australia, according to court documents. Assange has been released from a British prison and is likely to be credited for the five years he has already served, facing no new jail time. The plea deal follows Assange's indictment during the Trump administration over WikiLeaks' release of classified US documents. The agreement has sparked relief over Assange's potential release but also raised concerns about its impact on investigative and national security journalism."
