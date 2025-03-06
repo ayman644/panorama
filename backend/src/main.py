@@ -7,7 +7,7 @@ import time
 start =time.time()
 
 from revChatGPT.V3 import Chatbot
-chat =Chatbot("sk-proj-0ZOlZD009QUlSG6oKG5XT3BlbkFJFxTfKXrtGP1d36gJ9iQ0")
+chat =Chatbot("")
 
 def process_urls(urls, collection):
     # print(scrape.scrape_in_parallel(urls))
